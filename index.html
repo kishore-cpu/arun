@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY 1ST ANNIVERSARY || SORNA & ARUN 💕</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A special romantic 1st year love anniversary website created by Arun for his love Sorna. Celebrating 365 days of unconditional love, memories, and forever happiness.">
+    <meta name="keywords" content="Anniversary, Sorna, Arun, Love, 1st Year Love Anniversary, Romantic Wish">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Particle Background Canvas for Floating Hearts & Petals -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Audio Player Element & Ambient Synthesizer -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112188.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Security Gate Modal -->
+    <div id="entranceModal" class="modal-overlay active">
+        <div class="entrance-box glass-card security-box">
+            <div class="security-lock-icon"><i class="fa-solid fa-shield-cat"></i></div>
+            <h1 class="romantic-script title-glow">Sorna & Arun's Love Vault</h1>
+            <p class="subtitle">Enter your official <strong>Security Key</strong> to unlock this website.</p>
+            
+            <div class="security-contact-info">
+                <p><i class="fa-solid fa-key"></i> Buy Security Key from <strong>NEXUS CODEX</strong></p>
+                <div class="contact-buttons">
+                    <a href="tel:9342395911" class="contact-link"><i class="fa-solid fa-phone"></i> Call: 9342395911</a>
+                    <a href="https://wa.me/919342395911?text=Hi%20NEXUS%20CODEX,%20I%20need%20the%20Security%20Key%20for%20the%20Anniversary%20Website" target="_blank" class="contact-link whatsapp-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="key-input-wrapper">
+                <input type="text" id="securityKeyInput" placeholder="Enter Security Key..." autocomplete="off">
+                <button id="verifyKeyBtn" class="btn-primary glow-btn">
+                    <i class="fa-solid fa-lock-open"></i> UNLOCK WEBSITE 🔓
+                </button>
+            </div>
+
+            <div id="accessDeniedMsg" class="access-denied-msg hidden">
+                <div class="denied-badge"><i class="fa-solid fa-circle-xmark"></i> ACCESS DENIED</div>
+                <p>Invalid Security Key! Please contact NEXUS CODEX at <strong>9342395911</strong> to purchase your key.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar glass-card">
+        <div class="nav-logo romantic-script">Arun & Sorna</div>
+        <ul class="nav-links">
+            <li><a href="#hero"><i class="fa-solid fa-heart"></i> Love Counter</a></li>
+            <li><a href="#love-letter"><i class="fa-solid fa-envelope"></i> Love Letter</a></li>
+            <li><a href="#reasons"><i class="fa-solid fa-sparkles"></i> 10 Reasons</a></li>
+            <li><a href="#memories"><i class="fa-solid fa-camera-retro"></i> Memories</a></li>
+            <li><a href="#wheel-section"><i class="fa-solid fa-gamepad"></i> Spin Wheel</a></li>
+            <li><a href="#quiz-section"><i class="fa-solid fa-circle-question"></i> Quiz</a></li>
+        </ul>
+        <button id="musicToggle" class="music-btn" title="Toggle Romantic Music">
+            <i class="fa-solid fa-music"></i>
+            <span class="sound-wave">
+                <span></span><span></span><span></span>
+            </span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content glass-card">
+            <span class="badge">Happy 1st Anniversary My Love ✨</span>
+            <h1 class="hero-title romantic-script">Happy 1st Anniversary, Sorna! 🌹</h1>
+            <p class="hero-subtitle">
+                365 days ago, you became my favorite hello and my happiest forever. 
+                Thank you for filling my heart with infinite warmth and love, my dearest Sorna.
+            </p>
+
+            <!-- Counter Box -->
+            <div class="counter-container">
+                <h3 class="counter-header"><i class="fa-solid fa-hourglass-half"></i> We Have Been In Love For:</h3>
+                <div class="timer-grid">
+                    <div class="time-box">
+                        <span id="days" class="number">365</span>
+                        <span class="label">Days</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="hours" class="number">8760</span>
+                        <span class="label">Hours</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="minutes" class="number">525600</span>
+                        <span class="label">Minutes</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="seconds" class="number">31536000</span>
+                        <span class="label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#love-letter" class="btn-primary glow-btn">
+                    <i class="fa-solid fa-heart"></i> Read My Letter to You
+                </a>
+                <button id="burstHeartsBtn" class="btn-secondary">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Rain Love Hearts 💕
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: 3D Love Letter Envelope -->
+    <section id="love-letter" class="letter-section">
+        <div class="section-header text-center">
+            <h2 class="section-title romantic-script">A Sealed Note From Arun's Heart 💌</h2>
+            <p class="section-subtitle">Click the wax seal below to open your personalized anniversary love letter.</p>
+        </div>
+
+        <div class="envelope-wrapper">
+            <div id="envelope" class="envelope">
+                <div class="envelope-back"></div>
+                <div class="letter glass-letter">
+                    <div class="letter-stamp">❤️</div>
+                    <div id="letterContent" class="letter-text">
+                        <p class="salutation">Dearest Sorna,</p>
+                        <p id="typewriterText">
+                            Exactly 365 days ago, my life took a turn toward pure happiness when you came into my world. Every day with you is a reminder of how blessed I am to have your love. You are my smile, my peaceful home, my favorite laugh, and my soulmate. I love you more than words can ever describe. Happy 1st Anniversary!
+                        </p>
+                        <p class="signature">Forever & Always Yours,<br><strong>Arun 💕</strong></p>
+                    </div>
+                </div>
+                <div class="envelope-front"></div>
+                <div class="envelope-top"></div>
+                <div id="waxSeal" class="wax-seal" title="Click to Open">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>OPEN</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: 10 Reasons Why I Love You -->
+    <section id="reasons" class="reasons-section">
+        <div class="section-header text-center">
+            <h2 class="section-title romantic-script">10 Reasons Why You Are My Everything 💖</h2>
+            <p class="section-subtitle">Tap each glowing heart card below to discover why I fall in love with you every single day.</p>
+        </div>
+
+        <div class="reasons-grid">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front glass-card">
+                        <div class="card-heart">💖</div>
+                        <h3>Reason #1</h3>
+                        <p>Tap to reveal</p>
+                    </div>
+                    <div class="flip-card-back glass-card">
+                        <p>"Your smile instantly brightens even my hardest days."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front glass-card">
+                        <div class="card-heart">💝</div>
+                        <h3>Reason #2</h3>
+                        <p>Tap to reveal</p>
+                    </div>
+                    <div class="flip-card-back glass-card">
+                        <p>"The warmth and gentle kindness in your pure heart."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front glass-card">
+                        <div class="card-heart">💗</div>
+                        <h3>Reason #3</h3>
+                        <p>Tap to reveal</p>
+                    </div>
+                    <div class="flip-card-back glass-card">
+                        <p>"How you hold my hand tightly and make me feel safe."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front glass-card">
+                        <div class="card-heart">💓</div>
+                        <h3>Reason #4</h3>
+                        <p>Tap to reveal</p>
+                    </div>
+                    <div class="flip-card-back glass-card">
+                        <p>"Your adorable cute laughter that brings pure joy to my soul."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front glass-card">
+                        <div class="card-heart">💞</div>
+                        <h3>Reason #5</h3>
+                        <p>Tap to reveal</p>
+                    </div>
+                    <div class="flip-card-back glass-card">
+                        <p>"Our endless late night conversations and silly laughs."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front glass-card">
+                        <div class="card-heart">💕</div>
+                        <h3>Reason #6</h3>
+                        <p>Tap to reveal</p>
+                    </div>
+                    <div class="flip-card-back glass-card">
+                        <p>"The way your eyes sparkle whenever you smile at me."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front glass-card">
+                        <div class="card-heart">💌</div>
+                        <h3>Reason #7</h3>
+                        <p>Tap to reveal</p>
+                    </div>
+                    <div class="flip-card-back glass-card">
+                        <p>"How you always support and believe in me unconditionally."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front glass-card">
+                        <div class="card-heart">🌸</div>
+                        <h3>Reason #8</h3>
+                        <p>Tap to reveal</p>
+                    </div>
+                    <div class="flip-card-back glass-card">
+                        <p>"You inspire me to be a better man every single day."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front glass-card">
+                        <div class="card-heart">✨</div>
+                        <h3>Reason #9</h3>
+                        <p>Tap to reveal</p>
+                    </div>
+                    <div class="flip-card-back glass-card">
+                        <p>"You are my peaceful home and my favorite person in the world."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front glass-card">
+                        <div class="card-heart">👑</div>
+                        <h3>Reason #10</h3>
+                        <p>Tap to reveal</p>
+                    </div>
+                    <div class="flip-card-back glass-card">
+                        <p>"Because loving you, Sorna, is the easiest and best thing I've ever done."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Memory Polaroid Gallery -->
+    <section id="memories" class="memories-section">
+        <div class="section-header text-center">
+            <h2 class="section-title romantic-script">Our 1-Year Memory Lane 📸</h2>
+            <p class="section-subtitle">Moments frozen in time, forever etched in my heart.</p>
+        </div>
+
+        <div class="polaroid-container">
+            <div class="polaroid-card">
+                <div class="polaroid-img-wrapper">
+                    <img src="images/couple_stars.jpg" alt="Under The Starry Sky">
+                </div>
+                <div class="polaroid-caption romantic-script">Where Our Story Began... ✨</div>
+            </div>
+
+            <div class="polaroid-card">
+                <div class="polaroid-img-wrapper">
+                    <img src="images/roses_heart.jpg" alt="Romantic Promises">
+                </div>
+                <div class="polaroid-caption romantic-script">A Lock of Endless Love 🗝️</div>
+            </div>
+
+            <div class="polaroid-card">
+                <div class="polaroid-img-wrapper">
+                    <img src="images/hero_bg.jpg" alt="Dreamy Future Together">
+                </div>
+                <div class="polaroid-caption romantic-script">Hand in Hand into Forever 🌹</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Interactive Romantic Fortune Wheel -->
+    <section id="wheel-section" class="wheel-section">
+        <div class="section-header text-center">
+            <h2 class="section-title romantic-script">Sorna's Romantic Fortune Wheel 🎡</h2>
+            <p class="section-subtitle">Spin the wheel to win your anniversary date reward from Arun!</p>
+        </div>
+
+        <div class="wheel-container">
+            <div class="wheel-wrapper">
+                <div id="wheelPointer" class="wheel-pointer">🔻</div>
+                <canvas id="wheelCanvas" width="360" height="360"></canvas>
+            </div>
+            <button id="spinBtn" class="btn-primary glow-btn">
+                <i class="fa-solid fa-dharmachakra"></i> SPIN THE WHEEL!
+            </button>
+            <div id="wheelResult" class="wheel-result glass-card hidden">
+                <i class="fa-solid fa-gift"></i> <span id="rewardText">You Won: Candlelight Dinner!</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Couple Memory Quiz -->
+    <section id="quiz-section" class="quiz-section">
+        <div class="section-header text-center">
+            <h2 class="section-title romantic-script">How Well Do You Know Us? 🧠💖</h2>
+            <p class="section-subtitle">A cute little anniversary quiz just for you, my love!</p>
+        </div>
+
+        <div class="quiz-card glass-card">
+            <div id="quizContainer">
+                <div class="quiz-question-box">
+                    <span id="questionNum" class="quiz-badge">Question 1 of 3</span>
+                    <h3 id="questionText">Who loves the other one more?</h3>
+                </div>
+                <div id="optionsGrid" class="options-grid">
+                    <!-- Dynamic Options -->
+                </div>
+            </div>
+            <div id="quizResult" class="quiz-result hidden">
+                <div class="trophy-icon">🏆</div>
+                <h3 class="romantic-script">You Scored 100%!</h3>
+                <p>No matter the questions, the answer is always: <strong>Arun & Sorna Forever! 💕</strong></p>
+                <button id="restartQuizBtn" class="btn-secondary">Play Again</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Gift Coupons -->
+    <section class="coupons-section">
+        <div class="section-header text-center">
+            <h2 class="section-title romantic-script">Your Redeemable Love Vouchers 🎟️</h2>
+            <p class="section-subtitle">Coupons redeemable anytime with Arun!</p>
+        </div>
+
+        <div class="coupons-grid">
+            <div class="coupon-card glass-card">
+                <div class="coupon-icon">☕</div>
+                <h3>Breakfast & Coffee in Bed</h3>
+                <p>Valid anytime Sorna wants to stay cuddled up!</p>
+                <button class="claim-btn">Redeem Voucher</button>
+            </div>
+            <div class="coupon-card glass-card">
+                <div class="coupon-icon">🚗</div>
+                <h3>Late Night Long Drive</h3>
+                <p>For deep talks and romantic music under stars.</p>
+                <button class="claim-btn">Redeem Voucher</button>
+            </div>
+            <div class="coupon-card glass-card">
+                <div class="coupon-icon">🛍️</div>
+                <h3>Unlimited Hugs & Kisses</h3>
+                <p>Non-expiring pass for infinite cuddles & kisses.</p>
+                <button class="claim-btn">Redeem Voucher</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center glass-card">
+        <p class="footer-title romantic-script">Happy 1st Anniversary Sorna & Arun</p>
+        <p class="footer-subtitle">Crafted with infinite love by <strong>Arun</strong> for the love of his life <strong>Sorna</strong>. 💕</p>
+        <p class="footer-date">Forever & Always • August 2026</p>
+        <p class="footer-copyright">&copy; 2026 <strong>NEXUS CODEX</strong>. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
